@@ -64,8 +64,7 @@ $("#slotMachineButtonShuffle").click(function() {
             
     
     }, 4000);
-    
-    
+      
 });
 
 });

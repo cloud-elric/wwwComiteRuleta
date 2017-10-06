@@ -1,0 +1,272 @@
+/*!
+	-----------------------------------------------------------------------------
+
+	2.0 - Basicos
+			# Basic
+			# Utility
+			# Extra
+
+	-----------------------------------------------------------------------------
+	*/
+
+/*  Basic
+	========================================================================== */
+*,
+*:after,
+*:before
+	box-sizing: border-box
+
+*
+	margin: 0
+	padding: 0
+
+body
+	background-color: $white
+	font:
+		family: $f-base
+		size: 16px
+		weight: $light
+	color: $font-color
+
+/* a */
+a
+	color: $link
+	font:
+		family: $f-base
+		size: 16px
+		weight: $regular
+	text-decoration: none
+	+transition(all 0.3s ease-in)
+	&:hover
+		color: $link
+		text-decoration: none
+		+transition(all 0.3s ease-out)
+
+/* img */
+img
+	+transition(all 0.5s ease-in)
+
+/* Utility
+   ========================================================================== */
+/* h1 - h6 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6
+	font:
+		family: $f-base
+		weight: $light
+	letter-spacing: 1px
+	margin: 0
+	padding: 0
+	color: $white
+	margin-bottom: 16px
+h1,
+.h1
+	font-size: 2.8em
+h2,
+.h2
+	font-size: 2.4em
+	+respond-to(sl)
+		font-size: 1.4em
+h3,
+.h3
+	font-size: 2em
+	+respond-to(sl)
+		font-size: 1.2em
+	+respond-to(sp)
+		font-size: 1.1em
+	
+	
+h4,
+.h4
+	font-size: 1.6em
+	+respond-to(sp)
+		font-size: 1.1em
+h5,
+.h5
+	font-size: 1.4em
+h6,
+.h6
+	font-size: 1.2em
+
+/* hr */
+hr
+	border: none
+	margin: 0
+
+/* Wrap*/
+.wrap
+	position: relative
+
+
+/* Form */
+input
+	height: 45px
+	width: 85%
+	text-align: right
+	font-size: 2em
+	font-weight: $bold
+	letter-spacing: 1px
+	border:
+		radius: 3px
+		style: solid
+		color: $accent
+input::placeholder
+	color: lighten($accent, 6%)
+input:focus,
+input:active
+	outline: none
+
+/*  Btn
+	================================================ */
+.btn
+	-moz-user-select: none
+	-ms-user-select: none
+	-webkit-user-select: none
+	border-radius: .25rem
+	border: 1px solid transparent
+	cursor: pointer
+	display: inline-block
+	font-family: $f-base
+	font-size: 1.04rem
+	font-weight: $regular
+	line-height: 1.25
+	padding: .5rem 1rem
+	text-align: center
+	user-select: none
+	vertical-align: middle
+	white-space: nowrap
+	+border-radius(4px)
+	box-shadow: 0 3px 0 rgba(0,0,0,.05)
+	min-width: 100px
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus
+	outline: none
+	outline-offset: -2px
+
+.btn:focus,
+.btn:hover
+	text-decoration: none
+	color: $white
+
+.btn.focus
+	text-decoration: none
+
+.btn.active,
+.btn:active
+	background-image: none
+	outline: 0
+
+.btn.disabled,
+.btn:disabled
+	cursor: not-allowed
+	opacity: .65
+
+.btn-primary
+	color: $white
+	background-color: $primary
+	border-color: $primary
+
+.btn-fb
+	color: $white
+	background-color: $fb
+	border: no-border
+	text-transform: uppercase
+	font-size: .8em
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 260px
+	i.ion
+		margin-right: .5em
+		font-size: 1rem
+
+.btn-success
+	background-color: $success
+	border: no-border
+	color: $white
+
+.btn-success:hover
+	background-color: darken($success,10%)
+	color: $white
+
+.btn-default
+	color: $white
+	background-color: $default
+	border: no-border
+
+.btn-default:hover
+	background-color: darken($default,10%)
+
+.btn-fb:hover
+	color: $white
+	background-color: darken($fb,10%)
+	border: no-border
+
+.btn-secondary
+	color: $white
+	background-color: $secondary
+	border-color: $secondary
+
+.btn-primary:hover
+	color: $white
+	background-color: $accent
+	border-color: $accent
+
+.btn-primary.focus,
+.btn-primary:focus
+	background-color: $accent
+	border-color: $accent
+
+.btn-primary.active,
+.btn-primary:active
+	color: $white
+	background-color: $accent
+	border-color: $accent
+	background-image: none
+
+.container
+	height: 100%
+
+.container-column
+	height: 100%
+	position: relative
+	display: flex
+	flex-flow: column
+	align-items: center
+	justify-content: flex-start
+
+.container-960
+	max-width: 960px
+	width: 960px
+	margin: 0 auto
+	height: calc(100vh - 80px)
+	+respond-to(tl)
+		width: 100%
+
+.container-1024
+	max-width: 1024px
+	width: 1024px
+	margin: 0 auto
+	padding: 0 40px
+	+respond-to(tl)
+		width: 100%
+		overflow: hidden
+		padding: 0 10px
+
+.container-full
+	width: 100%

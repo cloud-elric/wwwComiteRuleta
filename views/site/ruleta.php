@@ -41,22 +41,7 @@ $this->registerJsFile ( '@web/webassets/js/slotMachine.js', [
 
 
 
-.btn-group-casino{
-margin-top: 30px;
-    text-align: center;
-}
 
-.btn-group-casino .btn{
-    height: 63px;
-    width: 236px;
-    background-size: cover;
-        color: #fff;
-    border:0px solid  #5D67A8;
-}    
-
-.marco-ganador{
-	background-image:url('../webAssets/images/fondo.png')
-}
 
 .js-vacio{
 height: 30px;
@@ -66,10 +51,12 @@ height: 30px;
 
 
 <div class="page">
+    <aside class="left"><img src="<?=Url::base()?>/webassets/images/patrocinadores.png" alt="Patrocinadores"></aside>
+    <aside class="right"><img src="<?=Url::base()?>/webassets/images/patrocinadores.png" alt="Patrocinadores"></aside>
     <div class="container container-full">
         <section class="ruleta">
             <h3>"Gracias por tu donación para ayudar a reconstruir México"</h3>
-            <div class="nombre-ganador"><span>Gira la ruleta para conocer al proximo ganador</span></div>
+            <div class="nombre-ganador"><span>--</span></div>
             <div id="casino">
                 <div class="content">
                 <div>
@@ -79,7 +66,7 @@ height: 30px;
                     if($elementos==0){?>
                         <div class="slot"><span>Ya no hay más ganadores</span></div>
                     <?php }else{?>
-                        <div data-token="-1" class="slot slot-1"><span class="start-msg">Iniciar concurso</span></div>
+                        <div data-token="-1" class="slot slot-1"><span class="start-msg">Gira la ruleta para conocer al proximo ganador</span></div>
                     <?php }
                     $index = 0;
                     foreach($boletos as $boleto){?>
@@ -90,7 +77,7 @@ height: 30px;
                     </div>
                     <div class="btn-group btn-group-justified btn-group-casino" role="group">
                     <?php if($elementos>0){?>
-                        <?= Html::submitButton('<span class="ladda-label">Girar</span>', ['id'=>'slotMachineButtonShuffle', 'class' => 'btn btn-primary js-btn-registrar ladda-button animated','data-style'=>'zoom-out'])?>
+                        <?= Html::submitButton('<span class="ladda-label">Girar ruleta</span>', ['id'=>'slotMachineButtonShuffle', 'class' => 'btn btn-primary js-btn-registrar ladda-button animated','data-style'=>'zoom-out'])?>
                     <?php }?>   
                     </div>
                 </div>

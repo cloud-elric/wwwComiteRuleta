@@ -9,7 +9,7 @@ var numElementos = 0;
 $(document).ready(function() {
 
 $("#slotMachineButtonShuffle").click(function() {
-    $(".nombre-ganador").html("");
+    $(".nombre-ganador").html("<span>--</span>");
     var l = Ladda.create(this);
      l.start();
     
@@ -27,7 +27,7 @@ $("#slotMachineButtonShuffle").click(function() {
     
     if($("#elements .slot").size()==0){
         l.stop();
-        $('.slotMachine').html('<div class="slot">Ya no hay más ganadores</div>');
+        $('.slotMachine').html('<div class="slot">Ya no existen mas boletos</div>');
         return false;
     }
     

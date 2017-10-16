@@ -19,6 +19,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'webassets/plugins/ladda-bootstrap/dist/ladda-themeless.min.css',
+        'webassets/css/site.css'
     ];
     public $js = [
         'webassets/plugins/ladda-bootstrap/dist/spin.min.js',

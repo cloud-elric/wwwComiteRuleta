@@ -1,5 +1,6 @@
 <?php
 use yii\bootstrap\Html;
+use yii\helpers\Url;
 
 $this->registerCssFile ( '@web/webassets/plugins/slot-machine/jquery.slotmachine.min.css', [
     'depends' => [
@@ -39,62 +40,8 @@ $this->registerJsFile ( '@web/webassets/js/slotMachine.js', [
 }
 
 
-#casino{
-	width: 80%;
-    height: 141px;
-    background-image: url(../webAssets/images/nombre.fw.png);
-    background-repeat: no-repeat;
-    position:relative;
-    background-position: 50%;
-    background-size: cover;
-    margin: 0 auto;
-    margin-top: 100px;
-    height: 99px;
-    border: 1px solid;
-}
 
-#casino::after{
-    content: '';
-    position: absolute;
-    height: 80px;
-    width: 100%;
-    right: 0;
-    left: 0;
-    top: -89px;
-    background-image: url(../webAssets/images/y-el-ganador-es.fw.png);
-    background-repeat: no-repeat;
-    /* display: flex; */
-    background-position: 50%;
-    background-size: 100%;
-}
 
-.slotMachine{
-    height: 99px;
-    margin: 0px auto 65px;
-    color: white;
-    /* align-items: center; */
-    /* justify-content: center; */
-    width: 80%;
-   
-}
-
-.btn-group-casino{
-margin-top: 30px;
-    text-align: center;
-}
-
-.btn-group-casino .btn{
-/* background: url(../webAssets/images/boton.png); */
-    height: 63px;
-    width: 236px;
-    background-size: cover;
-        color: #fff;
-    border:0px solid  #5D67A8;
-}    
-
-.marco-ganador{
-	background-image:url('../webAssets/images/fondo.png')
-}
 
 .js-vacio{
 height: 30px;
@@ -103,41 +50,46 @@ height: 30px;
 </style>
 
 
-<div class="wrap">
-	<div class="marco-ganador">
-		<!-- Slot machine example -->
-		
-		<div id="casino">
-			<div class="content">
-				<div>
-					<div id="casino1" class="slotMachine">
-					<?php
-					$elementos = count($boletos);
-					if($elementos==0){?>
-						<div class="slot"><span>Ya no hay más ganadores</span></div>
-					<?php }else{?>
-						<div data-token="-1" class="slot slot-1"><span>Iniciar concurso</span></div>
-					<?php }
-					$index = 0;
-					foreach($boletos as $boleto){?>
-						<div data-token="<?=$boleto->id_boleto?>" class="slot slot<?=$index?>"><span><?=$boleto->txt_codigo?></span></div>
-					<?php 
-					$index++;
-					}?>							
-					</div>
-					<div class="btn-group btn-group-justified btn-group-casino" role="group">
-					<?php if($elementos>0){?>
-						<?= Html::submitButton('<span class="ladda-label">Girar</span>', ['id'=>'slotMachineButtonShuffle', 'class' => 'btn btn-primary js-btn-registrar ladda-button animated','data-style'=>'zoom-out'])?>
-					<?php }?>	
-					</div>
-				</div>
-
-			</div>
-			<div class="clearfix"></div>
-		</div>
-		
-		
-	</div>
+<div class="page">
+    <aside class="left"><img src="<?=Url::base()?>/webassets/images/patrocinadores.png" alt="Patrocinadores"></aside>
+    <aside class="right"><img src="<?=Url::base()?>/webassets/images/patrocinadores.png" alt="Patrocinadores"></aside>
+    <div class="container container-full">
+        <section class="ruleta">
+            <h3>"Gracias por tu donación para ayudar a reconstruir México"</h3>
+            <div class="nombre-ganador"><span>--</span></div>
+            <div id="casino">
+                <div class="content">
+                <div>
+                    <div id="casino1" class="slotMachine">
+                    <?php
+                    $elementos = count($boletos);
+                    if($elementos==0){?>
+                        <div class="slot"><span>Ya no hay más ganadores</span></div>
+                    <?php }else{?>
+                        <div data-token="-1" class="slot slot-1"><span class="start-msg">Gira la ruleta para conocer al proximo ganador</span></div>
+                    <?php }
+                    $index = 0;
+                    foreach($boletos as $boleto){?>
+                        <div data-token="<?=$boleto->id_boleto?>" class="slot slot<?=$index?>"><span><?=$boleto->txt_codigo?></span></div>
+                    <?php 
+                    $index++;
+                    }?>                         
+                    </div>
+                    <div class="btn-group btn-group-justified btn-group-casino" role="group">
+                    <?php if($elementos>0){?>
+                        <?= Html::submitButton('<span class="ladda-label">Girar ruleta</span>', ['id'=>'slotMachineButtonShuffle', 'class' => 'btn btn-primary js-btn-registrar ladda-button animated','data-style'=>'zoom-out'])?>
+                    <?php }?>   
+                    </div>
+                </div>
+            </div>
+            <div class="empresas-participantes"></div>
+        </div>
+        </section>
+    </div>
+    <footer>
+      <a class="sponsor" href="http://www.2geeksonemonkey.com">Desarrollo donado por 2 Geeks one Monkey</a>
+      <img src="<?=Url::base()?>/webassets/images/2geeks-isotipo.png" alt="Desarrollo donado por 2 Geeks one Monkey">
+    </footer>
 </div>
 
 <div id="elements" style="display:none">
@@ -148,9 +100,5 @@ height: 30px;
 					<?php 
 					$index++;
 					}?>	
-
-</div>
-
-<div class="nombre-ganador">
 
 </div>
